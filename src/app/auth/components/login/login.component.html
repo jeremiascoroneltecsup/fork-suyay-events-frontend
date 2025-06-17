@@ -1,0 +1,62 @@
+<div class="login-container">
+  <div class="login-form-container">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Suyay Events">
+      <h1>SUYAY EVENTS</h1>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-field">
+        <input 
+          type="email" 
+          formControlName="email" 
+          placeholder="Tu correo electronico"
+          [class.error]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+        >
+        <span class="error-message" *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched">
+          El correo es requerido
+        </span>
+        <span class="error-message" *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched">
+          Ingrese un correo valido
+        </span>
+      </div>
+
+      <div class="form-field">
+        <input 
+          type="password" 
+          formControlName="password" 
+          placeholder="Ingresa 6 caracteres o mas"
+          [class.error]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+        >
+        <span class="error-message" *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched">
+          La contraseña es requerida
+        </span>
+        <span class="error-message" *ngIf="loginForm.get('password')?.errors?.['minlength'] && loginForm.get('password')?.touched">
+          La contraseña debe tener al menos 6 caracteres
+        </span>
+      </div>
+
+      <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+
+      <button type="submit" [disabled]="loginForm.invalid || loading" class="submit-button">
+        <span *ngIf="!loading">Ingresar</span>
+        <mat-spinner *ngIf="loading" [diameter]="24" class="spinner"></mat-spinner>
+      </button>
+
+      <div class="links">
+        <span>¿No tienes una cuenta?</span>
+        <a routerLink="/auth/register" class="register-link">Registrate aqui</a>
+      </div>
+
+      <a routerLink="/" class="back-link">Volver al inicio</a>
+    </form>
+
+    <div class="powered-by">
+      Powered by SUYAY EVENTS
+    </div>
+  </div>
+
+  <div class="welcome-image">
+    <img src="assets/images/welcome-neon.png" alt="Welcome to Suyay Events">
+  </div>
+</div>

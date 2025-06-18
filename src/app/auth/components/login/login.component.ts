@@ -26,20 +26,19 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
   onSubmit(): void {
     if (this.loginForm.valid) {
       this.loading = true;
-      const { email, password } = this.loginForm.value;
 
-      this.authService.login(email, password).subscribe({
-        next: () => {
+      this.authService.login(this.loginForm.value).subscribe({
+        next: (response) => {
           this.router.navigate(['/dashboard']);
         },
         error: (error) => {
           this.loading = false;
-          this.snackBar.open('Error al iniciar sesion. Intente nuevamente.', 'Cerrar', {
-            duration: 3000
+          const errorMessage = error.error?.detail?.[0]?.msg || 'Error al iniciar sesión. Intente nuevamente.';
+          this.snackBar.open(errorMessage, 'Cerrar', {
+            duration: 5000
           });
         },
         complete: () => {

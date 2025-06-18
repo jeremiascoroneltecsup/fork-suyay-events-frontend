@@ -1,6 +1,123 @@
-@import '../../styles/auth-shared.scss';
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #ffffff;
 
-// Estilos específicos para el registro
+  .login-form-container {
+    flex: 0.4;
+    width: 40%;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+
+    .logo {
+      align-self: center;
+      margin-bottom: 2rem;
+      width: 100%;
+      padding: 0 2rem;
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+
+        img {
+          width: 80px;
+          height: auto;
+        }
+        
+        h1 {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: #333;
+          margin: 0;
+        }
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+
+  .welcome-image {
+    flex: 0.6;
+    width: 60%;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #2a2a2a, #1a1a1a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 111%;
+      height: 110%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.95;
+      transition: all 0.5s ease;
+      transform: scale(0.9);
+      
+      &:hover {
+        opacity: 1;
+        transform: scale(0.95);
+      }
+    }
+  }
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  
+  .form-field {
+    margin-bottom: 1.5rem;
+    
+    input, select {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #f8f9fa;
+      
+      &:focus {
+        outline: none;
+        border-color: #ff758c;
+        box-shadow: 0 0 0 2px rgba(255, 117, 140, 0.2);
+      }
+      
+      &.error {
+        border-color: #ff4444;
+      }
+    }
+
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    
+    .error-message {
+      color: #ff4444;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
 .checkbox-field {
   margin-bottom: 1rem;
   
@@ -8,53 +125,67 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #666;
     font-size: 0.875rem;
+    color: #666;
     
     input[type="checkbox"] {
-      width: auto;
-      margin: 0;
+      width: 1.125rem;
+      height: 1.125rem;
+      accent-color: #ff758c;
     }
-  }
-
-  .link {
-    color: #ff758c;
-    text-decoration: none;
-    
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .error-message {
-    margin-top: 0.25rem;
-    font-size: 0.75rem;
   }
 }
 
-select {
+.submit-button {
   width: 100%;
   padding: 1rem;
-  border: 1px solid #ddd;
+  border: none;
   border-radius: 8px;
   font-size: 1rem;
-  background-color: #f8f9fa;
-  color: #666;
-  appearance: none;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
   cursor: pointer;
   
-  &:focus {
-    outline: none;
-    border-color: #ff758c;
-    box-shadow: 0 0 0 2px rgba(255, 117, 140, 0.2);
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  color: #666;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 1018px) {
+  .login-container {
+    flex-direction: column;
+    
+    .login-form-container {
+      width: 100%;
+      padding: 2rem;
+    }
+    
+    .welcome-image {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form-container {
+    padding: 1rem;
   }
   
-  &.error {
-    border-color: #ff4444;
-    background-color: #fff8f8;
-  }
-  
-  option {
-    padding: 0.5rem;
+  .logo img {
+    width: 60px;
   }
 }

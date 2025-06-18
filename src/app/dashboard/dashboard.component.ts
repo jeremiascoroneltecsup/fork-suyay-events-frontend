@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dashboard',
@@ -33,8 +36,20 @@ import { Component } from '@angular/core';
   `]
 })
 export class DashboardComponent {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
+
   logout() {
-    // Implementar lógica de logout aquí
-    console.log('Logout clicked');
+    this.authService.logout();
+    this.snackBar.open('Sesión cerrada correctamente', 'Cerrar', {
+      duration: 3000,
+      panelClass: ['custom-success-snackbar'],
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
+    });
+    this.router.navigate(['/auth/login']);
   }
 }

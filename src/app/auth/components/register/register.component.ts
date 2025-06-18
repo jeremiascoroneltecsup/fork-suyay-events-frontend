@@ -65,17 +65,21 @@ export class RegisterComponent {
       delete userData.receiveInfo;
 
       this.authService.register(userData).subscribe({
-        next: (response) => {
-          this.snackBar.open('Registro exitoso', 'Cerrar', {
-            duration: 3000
+        next: (response) => {          this.snackBar.open('Registro exitoso', 'Cerrar', {
+            duration: 3000,
+            panelClass: ['custom-success-snackbar'],
+            horizontalPosition: 'center',
+            verticalPosition: 'top'
           });
           this.router.navigate(['/auth/login']);
         },
         error: (error) => {
           this.loading = false;
-          const errorMessage = error.error?.detail?.[0]?.msg || 'Error en el registro. Intente nuevamente.';
-          this.snackBar.open(errorMessage, 'Cerrar', {
-            duration: 5000
+          const errorMessage = error.error?.detail?.[0]?.msg || 'Error en el registro. Intente nuevamente.';          this.snackBar.open(errorMessage, 'Cerrar', {
+            duration: 5000,
+            panelClass: ['custom-error-snackbar'],
+            horizontalPosition: 'center',
+            verticalPosition: 'top'
           });
         },
         complete: () => {

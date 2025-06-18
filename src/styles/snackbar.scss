@@ -1,0 +1,26 @@
+.custom-snackbar {
+  &.error-snackbar {
+    background: linear-gradient(to right, #ff4444, #ff6b6b);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(255, 68, 68, 0.2);
+    
+    .mat-simple-snackbar {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .mat-simple-snackbar-action {
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  &.success-snackbar {
+    background: linear-gradient(to right, #00c853, #69f0ae);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 200, 83, 0.2);
+  }
+}

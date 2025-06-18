@@ -35,10 +35,19 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         },
         error: (error) => {
-          this.loading = false;
-          const errorMessage = error.error?.detail?.[0]?.msg || 'Error al iniciar sesión. Intente nuevamente.';
-          this.snackBar.open(errorMessage, 'Cerrar', {
-            duration: 5000
+          this.loading = false;          let errorMessage = 'Error al iniciar sesión. Intente nuevamente.';
+          
+          if (error.error?.detail?.[0]?.msg) {
+            errorMessage = error.error.detail[0].msg;
+          } else if (error.status === 401) {
+            errorMessage = 'Correo o contraseña incorrectos';
+          } else if (error.status === 422) {
+            errorMessage = 'Por favor, verifique los datos ingresados';
+          }          this.snackBar.open(errorMessage, 'Cerrar', {
+            duration: 5000,
+            panelClass: ['custom-error-snackbar'],
+            horizontalPosition: 'center',
+            verticalPosition: 'top'
           });
         },
         complete: () => {

@@ -5,32 +5,32 @@
         <img src="assets/images/Logo_sin_fondo2.png" alt="Suyay Events">
         <h1>SUYAY EVENTS</h1>
       </div>
-      <h2>REGISTRO</h2>
-    </div>
+      <h2>REGISTRO</h2>    </div>    
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="login-form">      
+      <div class="form-row">
+        <div class="form-field">
+          <input 
+            type="text" 
+            formControlName="first_names" 
+            placeholder="Nombres"
+            [class.error]="registerForm.get('first_names')?.invalid && registerForm.get('first_names')?.touched"
+          >
+          <span class="error-message" *ngIf="registerForm.get('first_names')?.errors?.['required'] && registerForm.get('first_names')?.touched">
+            Los nombres son requeridos
+          </span>
+        </div>
 
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="login-form">
-      <div class="form-field">
-        <input 
-          type="text" 
-          formControlName="first_names" 
-          placeholder="Nombres"
-          [class.error]="registerForm.get('first_names')?.invalid && registerForm.get('first_names')?.touched"
-        >
-        <span class="error-message" *ngIf="registerForm.get('first_names')?.errors?.['required'] && registerForm.get('first_names')?.touched">
-          Los nombres son requeridos
-        </span>
-      </div>
-
-      <div class="form-field">
-        <input 
-          type="text" 
-          formControlName="last_names" 
-          placeholder="Apellidos"
-          [class.error]="registerForm.get('last_names')?.invalid && registerForm.get('last_names')?.touched"
-        >
-        <span class="error-message" *ngIf="registerForm.get('last_names')?.errors?.['required'] && registerForm.get('last_names')?.touched">
-          Los apellidos son requeridos
-        </span>
+        <div class="form-field">
+          <input 
+            type="text" 
+            formControlName="last_names" 
+            placeholder="Apellidos"
+            [class.error]="registerForm.get('last_names')?.invalid && registerForm.get('last_names')?.touched"
+          >
+          <span class="error-message" *ngIf="registerForm.get('last_names')?.errors?.['required'] && registerForm.get('last_names')?.touched">
+            Los apellidos son requeridos
+          </span>
+        </div>
       </div>
 
       <div class="form-field">
@@ -58,51 +58,66 @@
         <span class="error-message" *ngIf="registerForm.get('phone')?.errors?.['required'] && registerForm.get('phone')?.touched">
           El número de celular es requerido
         </span>
+      </div>      <div class="form-row">
+        <div class="form-field">
+          <select 
+            formControlName="gender"
+            [class.error]="registerForm.get('gender')?.invalid && registerForm.get('gender')?.touched"
+          >
+            <option value="">Género</option>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+            <option value="O">Otro</option>
+          </select>
+          <span class="error-message" *ngIf="registerForm.get('gender')?.errors?.['required'] && registerForm.get('gender')?.touched">
+            El género es requerido
+          </span>
+        </div>
+
+        <div class="form-field">
+          <select 
+            formControlName="department"
+            [class.error]="registerForm.get('department')?.invalid && registerForm.get('department')?.touched"
+          >
+            <option value="">Departamento</option>
+            <option value="LIM">Lima</option>
+            <option value="AQP">Arequipa</option>
+            <option value="CUS">Cusco</option>
+            <!-- Agregar más departamentos según sea necesario -->
+          </select>
+        </div>
       </div>
 
-      <div class="form-field">
-        <select 
-          formControlName="gender"
-          [class.error]="registerForm.get('gender')?.invalid && registerForm.get('gender')?.touched"
-        >
-          <option value="">Seleccione género</option>
-          <option value="M">Masculino</option>
-          <option value="F">Femenino</option>
-          <option value="O">Otro</option>
-        </select>
-        <span class="error-message" *ngIf="registerForm.get('gender')?.errors?.['required'] && registerForm.get('gender')?.touched">
-          El género es requerido
-        </span>
-      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <input 
+            type="password" 
+            formControlName="password" 
+            placeholder="Contraseña"
+            [class.error]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
+          >
+          <span class="error-message" *ngIf="registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.touched">
+            La contraseña es requerida
+          </span>
+          <span class="error-message" *ngIf="registerForm.get('password')?.errors?.['minlength'] && registerForm.get('password')?.touched">
+            La contraseña debe tener al menos 6 caracteres
+          </span>
+        </div>
 
-      <div class="form-field">
-        <input 
-          type="password" 
-          formControlName="password" 
-          placeholder="Contraseña"
-          [class.error]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
-        >
-        <span class="error-message" *ngIf="registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.touched">
-          La contraseña es requerida
-        </span>
-        <span class="error-message" *ngIf="registerForm.get('password')?.errors?.['minlength'] && registerForm.get('password')?.touched">
-          La contraseña debe tener al menos 6 caracteres
-        </span>
-      </div>
-
-      <div class="form-field">
-        <input 
-          type="password" 
-          formControlName="repeatPassword" 
-          placeholder="Repetir Contraseña"
-          [class.error]="registerForm.get('repeatPassword')?.invalid && registerForm.get('repeatPassword')?.touched"
-        >
-        <span class="error-message" *ngIf="registerForm.get('repeatPassword')?.errors?.['required'] && registerForm.get('repeatPassword')?.touched">
-          Debe repetir la contraseña
-        </span>
-        <span class="error-message" *ngIf="registerForm.get('repeatPassword')?.errors?.['passwordMismatch'] && registerForm.get('repeatPassword')?.touched">
-          Las contraseñas no coinciden
-        </span>
+        <div class="form-field">
+          <input 
+            type="password" 
+            formControlName="repeatPassword" 
+            placeholder="Repetir Contraseña"
+            [class.error]="registerForm.get('repeatPassword')?.invalid && registerForm.get('repeatPassword')?.touched"
+          >
+          <span class="error-message" *ngIf="registerForm.get('repeatPassword')?.errors?.['required'] && registerForm.get('repeatPassword')?.touched">
+            Debe repetir la contraseña
+          </span>
+          <span class="error-message" *ngIf="registerForm.get('repeatPassword')?.errors?.['passwordMismatch'] && registerForm.get('repeatPassword')?.touched">
+            Las contraseñas no coinciden
+          </span>
+        </div>
       </div>
 
       <div class="checkbox-field">

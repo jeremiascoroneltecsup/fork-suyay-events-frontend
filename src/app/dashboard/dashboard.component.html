@@ -18,7 +18,7 @@
         <div class="search-container">
           <input type="text" placeholder="Buscar eventos..." class="search-input" #searchInput>
           <button class="search-btn" (click)="searchEvents(searchInput.value)">
-            <i class="search-icon">🔍</i>
+            <img src="assets/images/buscar.png" alt="Buscar" class="search-icon">
           </button>
         </div>
       </div>
@@ -26,9 +26,11 @@
       <div class="user-section" *ngIf="currentUser">
         <span class="username">{{ currentUser.first_names }} {{ currentUser.last_names }}</span>
         <div class="user-avatar">
-          <img src="https://via.placeholder.com/40" alt="Usuario" class="avatar-img">
+          <img src="assets/images/avatar.png" alt="Usuario" class="avatar-img">
         </div>
-        <button class="logout-btn" (click)="logout()" title="Cerrar Sesión">🚪</button>
+        <button class="logout-btn" (click)="logout()" title="Cerrar Sesión">
+          <img src="assets/images/logout.png" alt="Logout" class="logout-icon">
+        </button>
       </div>
       <!-- Debug info - remove this later -->
       <div class="user-section" *ngIf="!currentUser" style="color: white;">

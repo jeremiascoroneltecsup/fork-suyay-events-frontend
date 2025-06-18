@@ -14,9 +14,44 @@ export class DashboardComponent implements OnInit {
   events = [
     {
       id: 1,
+      title: 'Organizar Eventos Privados',
+      subtitle: 'EVENTOS EXCLUSIVOS',
+      location: 'Servicios Personalizados',
+      date: '15',
+      month: 'DIC',
+      time: 'TODO EL AÑO',
+      image: 'https://elolivar.es/olivar-content/uploads/2023/02/organizar-eventos-privados.png',
+      category: 'Privado'
+    },
+    {
+      id: 2,
+      title: 'Fiestas Temáticas',
+      subtitle: 'CELEBRACIONES ÚNICAS',
+      location: 'Organización Completa',
+      date: '20',
+      month: 'DIC',
+      time: 'BAJO RESERVA',
+      image: 'https://eventos.urquiabas.com/wp-content/uploads/consejos-para-organizar-fiestas-tematicas-con-exito.jpg',
+      category: 'Temático'
+    },
+    {
+      id: 3,
+      title: 'Fiestas de Octubre',
+      subtitle: 'GUADALAJARA',
+      location: 'Centro de la Ciudad',
+      date: '25',
+      month: 'OCT',
+      time: 'FESTIVALES',
+      image: 'https://media.viajando.travel/p/9081ba349f14a18de8b6230c8fb4e24e/adjuntos/236/imagenes/000/763/0000763382/1200x675/smart/fiestas-octubre-guadalajara-cartelerajpg.jpg',
+      category: 'Festival'
+    }
+  ];
+
+  allEvents = [
+    {
+      id: 4,
       title: 'Noche de Halloween Familiar',
-      subtitle: 'LIMA',
-      location: 'Club Social del Barrio',
+      location: 'Lima, Club Social del Barrio',
       date: '31',
       month: 'OCT',
       time: '18:00–21:00',
@@ -24,10 +59,9 @@ export class DashboardComponent implements OnInit {
       category: 'Familiar'
     },
     {
-      id: 2,
+      id: 5,
       title: 'Festa de Cosplay & Horror',
-      subtitle: 'BARRANCO',
-      location: 'Sala El Refugio',
+      location: 'Barranco, Sala El Refugio',
       date: '28',
       month: 'OCT',
       time: '20:00–00:00',
@@ -35,10 +69,9 @@ export class DashboardComponent implements OnInit {
       category: 'Cosplay'
     },
     {
-      id: 3,
+      id: 6,
       title: 'Halloween Glow Party',
-      subtitle: 'MIRAFLORES',
-      location: 'Parque Municipal',
+      location: 'Miraflores, Parque Municipal',
       date: '30',
       month: 'OCT',
       time: '19:00–23:00',
@@ -46,61 +79,17 @@ export class DashboardComponent implements OnInit {
       category: 'Party'
     },
     {
-      id: 4,
+      id: 7,
       title: 'Terror en la Mansión',
-      subtitle: 'SAN ISIDRO',
-      location: 'Hacienda La Molina',
+      location: 'San Isidro, Hacienda La Molina',
       date: '29',
       month: 'OCT',
       time: '21:00–01:00',
       image: 'https://cdn0.uncomo.com/es/posts/8/8/7/como_hacer_una_fiesta_de_halloween_para_adultos_29788_orig.jpg',
       category: 'Terror'
-    }
-  ];
-
-  allEvents = [
-    {
-      id: 5,
-      title: 'AUDITORIO ANIME FRIENDS',
-      location: 'UBICACIÓN DEL EVENTO',
-      date: '15',
-      month: 'NOV',
-      time: 'FECHA Y HORA DEL EVENTO',
-      image: 'https://via.placeholder.com/300x200/ff6b35/ffffff?text=Anime+Friends',
-      category: 'Anime'
     },
     {
-      id: 6,
-      title: 'LATIN FESTIVAL',
-      location: 'UBICACIÓN DEL EVENTO',
-      date: '20',
-      month: 'NOV',
-      time: 'FECHA Y HORA DEL EVENTO',
-      image: 'https://via.placeholder.com/300x200/e91e63/ffffff?text=Latin+Festival',
-      category: 'Musical'
-    },
-    {
-      id: 7,
-      title: 'DÍA MUNDIAL DEL FOLKLORE',
-      location: 'UBICACIÓN DEL EVENTO',
-      date: '22',
-      month: 'NOV',
-      time: 'FECHA Y HORA DEL EVENTO',
-      image: 'https://via.placeholder.com/300x200/2196f3/ffffff?text=Folklore',
-      category: 'Cultural'
-    },
-    {
-      id: 8,
-      title: 'TÍTULO DEL EVENTO',
-      location: 'UBICACIÓN DEL EVENTO',
-      date: '25',
-      month: 'NOV',
-      time: 'FECHA Y HORA DEL EVENTO',
-      image: 'https://via.placeholder.com/300x200/9c27b0/ffffff?text=Evento+Especial',
-      category: 'Especial'
-    },
-    {
-      id: 9,
+      id: 12,
       title: 'Cosplay Street Fest',
       location: 'Centro de Lima',
       date: '5',
@@ -110,7 +99,7 @@ export class DashboardComponent implements OnInit {
       category: 'Cosplay'
     },
     {
-      id: 10,
+      id: 13,
       title: 'Tarde de Películas de Horror',
       location: 'San Borja, Centro Cultural',
       date: '1',
@@ -120,7 +109,7 @@ export class DashboardComponent implements OnInit {
       category: 'Horror'
     },
     {
-      id: 11,
+      id: 14,
       title: 'Murder Mystery Halloween',
       location: 'Surco, Mansión Colonial',
       date: '27',
@@ -130,7 +119,7 @@ export class DashboardComponent implements OnInit {
       category: 'Mystery'
     },
     {
-      id: 12,
+      id: 15,
       title: 'Pumpkin Arts & Crafts',
       location: 'Magdalena, Parque Familiar',
       date: '24',
@@ -140,7 +129,7 @@ export class DashboardComponent implements OnInit {
       category: 'Familiar'
     },
     {
-      id: 13,
+      id: 16,
       title: 'Haunted Forest Walk',
       location: 'Lurín, Sendero Mágico',
       date: '31',
@@ -150,7 +139,7 @@ export class DashboardComponent implements OnInit {
       category: 'Terror'
     },
     {
-      id: 14,
+      id: 17,
       title: 'Glow Cosplay Night',
       location: 'Barranco, Galería Underground',
       date: '2',
@@ -160,7 +149,7 @@ export class DashboardComponent implements OnInit {
       category: 'Cosplay'
     },
     {
-      id: 15,
+      id: 18,
       title: 'Kids Halloween Bash',
       location: 'San Isidro, Salón Comunitario',
       date: '30',
@@ -170,7 +159,7 @@ export class DashboardComponent implements OnInit {
       category: 'Familiar'
     },
     {
-      id: 16,
+      id: 19,
       title: 'Zombie Bar Crawl',
       location: 'Centro Histórico, Ruta de Bars',
       date: '31',

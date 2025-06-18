@@ -115,6 +115,9 @@
 
     .username {
       font-weight: bold;
+      font-size: 1rem;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     .user-avatar {
@@ -513,8 +516,6 @@
     }
   }
 }
-
-
 
 // Footer Styles
 .main-footer {

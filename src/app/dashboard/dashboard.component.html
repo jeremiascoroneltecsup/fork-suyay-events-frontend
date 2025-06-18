@@ -30,6 +30,10 @@
         </div>
         <button class="logout-btn" (click)="logout()" title="Cerrar Sesión">🚪</button>
       </div>
+      <!-- Debug info - remove this later -->
+      <div class="user-section" *ngIf="!currentUser" style="color: white;">
+        <span>No hay usuario logueado</span>
+      </div>
     </div>
   </header>
 

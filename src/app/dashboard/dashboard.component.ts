@@ -181,7 +181,20 @@ export class DashboardComponent implements OnInit {
   }
 
   loadCurrentUser() {
-    this.currentUser = this.authService.getCurrentUser();
+    // Obtener usuario actual de forma síncrona si ya está disponible
+    this.currentUser = this.authService.getCurrentUserSync();
+    
+    // Suscribirse al Observable del usuario actual para actualizaciones
+    this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
+    });
+    
+    // Si hay token pero no hay usuario, obtener datos del servidor
+    if (localStorage.getItem('token') && !this.currentUser) {
+      this.authService.getCurrentUser().subscribe(user => {
+        this.currentUser = user;
+      });
+    }
   }
 
   nextSlide() {

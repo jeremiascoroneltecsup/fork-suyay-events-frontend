@@ -229,4 +229,8 @@ export class DashboardComponent implements OnInit {
     });
     this.router.navigate(['/auth/login']);
   }
+
+  goToLogin() {
+    this.router.navigate(['/auth/login']);
+  }
 }

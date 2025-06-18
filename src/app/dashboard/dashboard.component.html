@@ -32,9 +32,13 @@
           <img src="assets/images/logout.png" alt="Logout" class="logout-icon">
         </button>
       </div>
-      <!-- Debug info - remove this later -->
-      <div class="user-section" *ngIf="!currentUser" style="color: white;">
-        <span>No hay usuario logueado</span>
+      
+      <!-- Login Section when user is not logged in -->
+      <div class="login-section" *ngIf="!currentUser">
+        <button class="login-btn" (click)="goToLogin()" title="Iniciar Sesión">
+          <img src="assets/images/usuario_leslogeado.png" alt="Iniciar Sesión" class="login-icon">
+          <span class="login-text">Iniciar Sesión</span>
+        </button>
       </div>
     </div>
   </header>

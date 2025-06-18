@@ -1,53 +1,80 @@
+// Contenedor principal que ocupa toda la altura de la pantalla
 .login-container {
-  display: flex;
-  min-height: 100vh;
-  background-color: #1a1a1a;
-  
+  display: flex; // Activa el diseño flexible
+  min-height: 100vh; // Asegura que ocupe toda la altura de la ventana
+  background-color: #ffffff;
+
+  // Contenedor del formulario de login (40% del ancho)
   .login-form-container {
-    flex: 1;
-    padding: 2rem;
+    flex: 0.5; // Establece que ocupe el 40% del espacio disponible
+    width: 50%; // Ancho explícito del 40%
+    padding: 2rem 4rem; // Espaciado interno: 2rem arriba/abajo, 4rem izquierda/derecha
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 480px;
-    background-color: #ffffff;
-    
-    .logo {
-      text-align: center;
+    flex-direction: column; // Organiza los elementos en columna
+    align-items: center; // Centra horizontalmente los elementos
+    justify-content: center; // Centra verticalmente los elementos
+    background-color: #ffffff;    .logo {      align-self: center;
       margin-bottom: 2rem;
-      
-      img {
-        width: 120px;
-        height: auto;
-      }
-      
-      h1 {
-        margin-top: 1rem;
-        font-size: 1.5rem;
+      width: 100%;
+      padding: 0 2rem;
+        .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+
+        img {
+          width: 80px;
+          height: auto;
+        }
+        
+        h1 {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: #333;
+          margin: 0;
+        }
+      }      h2 {
+        font-size: 1.25rem;
         font-weight: bold;
         color: #333;
+        margin-left: 12rem;
+        width: 100%;
       }
     }
   }
 
+  // Contenedor de la imagen de bienvenida (60% del ancho)
   .welcome-image {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    
+    flex: 0.6; // Establece que ocupe el 60% del espacio disponible
+    width: 60%; // Ancho explícito del 60%
+    position: relative; // Necesario para el posicionamiento de la imagen
+    overflow: hidden; // Oculta cualquier parte de la imagen que se desborde
+    background: radial-gradient(circle at center, #2a2a2a, #1a1a1a); // Gradiente más suave
+    display: flex; // Añadido para centrar la imagen
+    align-items: center; // Centra verticalmente
+    justify-content: center; // Centra horizontalmente
     img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+      width: 111%; // Hacemos la imagen un poco más grande
+      height: 110%; // Aumentamos también la altura
+      object-fit: cover; // Cambiamos a cover para llenar el espacio
+      object-position: center; // Centra la imagen
+      opacity: 0.95; // Ligera transparencia para mejor integración
+      transition: all 0.5s ease; // Animación suave para todos los cambios
+      transform: scale(0.9); // Escalamos la imagen ligeramente
+      &:hover {
+        opacity: 1;
+        transform: scale(0.95); // Efecto de zoom suave al hover
+      }
     }
   }
 }
 
 .login-form {
-  width: 100%;
+  width: calc(100% - 2rem); // Ajusta el ancho considerando los márgenes
   max-width: 400px;
+  margin: 0 1rem; // Centra el formulario con márgenes consistentes
   
   .form-field {
     margin-bottom: 1.5rem;
@@ -166,17 +193,52 @@
   text-align: center;
 }
 
-@media (max-width: 768px) {
+// Estilos responsivos
+@media (max-width: 1018px) {
   .login-container {
     flex-direction: column;
     
     .login-form-container {
+      flex: 1;
+      width: 100%;
       max-width: 100%;
-      padding: 1.5rem;
+      padding: 2rem;
     }
     
     .welcome-image {
-      display: none;
+      display: none; // Oculta la imagen
+    }
+  }
+
+  .login-form {
+    width: 100%;
+    max-width: 450px; // Un poco más ancho en pantallas más pequeñas
+    margin: 0 auto;
+    
+    input {
+      font-size: 16px; // Mejor tamaño para móviles
+    }
+  }
+}
+
+// Ajustes adicionales para pantallas muy pequeñas
+@media (max-width: 480px) {
+  .login-container {
+    .login-form-container {
+      padding: 1.5rem;
+    }
+  }
+
+  .login-form {
+    max-width: 100%;
+  }
+
+  .logo {
+    img {
+      width: 100px; // Logo más pequeño en móviles
+    }
+    h1 {
+      font-size: 1.25rem; // Título más pequeño en móviles
     }
   }
 }

@@ -1,14 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'styles/responsive.scss';
+@import 'styles/snackbar.scss';
 
 html, body { 
   height: 100%; 
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif; 
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body { 
   background-color: #1a1a1a; 
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Estilos para imágenes responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mejoras para formularios en móviles */
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: 16px; /* Previene zoom automático en iOS */
+  max-width: 100%;
+}
+
+/* Prevenir selección de texto no deseada en elementos interactivos móviles */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Media query para ajuste de tamaño de fuente en pantallas pequeñas */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 // Estilos personalizados para el snackbar

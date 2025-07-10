@@ -39,7 +39,7 @@
         font-size: 1.25rem;
         font-weight: bold;
         color: #333;
-        margin-left: 12rem;
+        text-align: center;
         width: 100%;
       }
     }
@@ -51,21 +51,26 @@
     width: 60%; // Ancho explícito del 60%
     position: relative; // Necesario para el posicionamiento de la imagen
     overflow: hidden; // Oculta cualquier parte de la imagen que se desborde
-    background: radial-gradient(circle at center, #2a2a2a, #1a1a1a); // Gradiente más suave
+    background: #1a1a1a; // Fondo oscuro uniforme para evitar espacios grises
     display: flex; // Añadido para centrar la imagen
     align-items: center; // Centra verticalmente
     justify-content: center; // Centra horizontalmente
     img {
-      width: 111%; // Hacemos la imagen un poco más grande
-      height: 110%; // Aumentamos también la altura
-      object-fit: cover; // Cambiamos a cover para llenar el espacio
+      width: 100%; // Ancho completo
+      height: 100%; // Altura completa
+      object-fit: cover; // Para que cubra todo el espacio
       object-position: center; // Centra la imagen
-      opacity: 0.95; // Ligera transparencia para mejor integración
+      opacity: 1; // Sin transparencia para evitar ver el fondo
       transition: all 0.5s ease; // Animación suave para todos los cambios
-      transform: scale(0.9); // Escalamos la imagen ligeramente
+      transform: none; // Eliminamos la escala que reducía el tamaño
+      position: absolute; // Posicionamiento absoluto para cubrir todo el contenedor
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       &:hover {
-        opacity: 1;
-        transform: scale(0.95); // Efecto de zoom suave al hover
+        opacity: 0.95; // Ligera transparencia al hover para efecto
+        transform: scale(1.02); // Pequeño efecto de zoom al hover
       }
     }
   }
@@ -231,14 +236,34 @@
 
   .login-form {
     max-width: 100%;
+    
+    .form-field input {
+      padding: 0.8rem;
+      font-size: 0.95rem;
+    }
+    
+    .submit-button {
+      padding: 0.8rem;
+    }
   }
 
   .logo {
     img {
-      width: 100px; // Logo más pequeño en móviles
+      width: 60px; // Logo más pequeño en móviles
     }
+    
     h1 {
       font-size: 1.25rem; // Título más pequeño en móviles
     }
+    
+    h2 {
+      font-size: 1.1rem;
+      margin-left: 0;
+      text-align: center;
+    }
+  }
+  
+  .forgot-password, .links, .back-link {
+    font-size: 0.8rem;
   }
 }

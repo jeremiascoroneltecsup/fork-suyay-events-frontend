@@ -54,23 +54,28 @@
     width: 60%;
     position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at center, #2a2a2a, #1a1a1a);
+    background: #1a1a1a; // Fondo oscuro uniforme para evitar espacios grises
     display: flex;
     align-items: center;
     justify-content: center;
 
     img {
-      width: 111%;
-      height: 110%;
-      object-fit: cover;
-      object-position: center;
-      opacity: 0.95;
-      transition: all 0.5s ease;
-      transform: scale(0.9);
+      width: 100%; // Ancho completo
+      height: 100%; // Altura completa
+      object-fit: cover; // Para que cubra todo el espacio
+      object-position: center; // Centra la imagen
+      opacity: 1; // Sin transparencia para evitar ver el fondo
+      transition: all 0.5s ease; // Animación suave para todos los cambios
+      transform: none; // Eliminamos la escala que reducía el tamaño
+      position: absolute; // Posicionamiento absoluto para cubrir todo el contenedor
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       
       &:hover {
-        opacity: 1;
-        transform: scale(0.95);
+        opacity: 0.95; // Ligera transparencia al hover para efecto
+        transform: scale(1.02); // Pequeño efecto de zoom al hover
       }
     }
   }
@@ -210,11 +215,46 @@
 }
 
 @media (max-width: 480px) {
-  .login-form-container {
-    padding: 1rem;
+  .login-container {
+    .login-form-container {
+      padding: 1rem;
+    }
   }
   
-  .logo img {
-    width: 60px;
+  .logo {
+    .logo-container {
+      img {
+        width: 60px;
+      }
+      
+      h1 {
+        font-size: 1.2rem;
+      }
+    }
+    
+    h2 {
+      font-size: 1.1rem;
+      margin-left: 0;
+      text-align: center;
+    }
+  }
+  
+  .login-form {
+    .form-field {
+      input {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+      }
+    }
+    
+    .form-row {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .submit-button {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
   }
 }
